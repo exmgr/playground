@@ -2,9 +2,10 @@ const telemetryService = require("../services/telemetry.service");
 
 async function download(req, res, next) {
     const jwt_token = await req.app.get("jwt_token")
-
+    const startTs = req.query.startTs;
+    const endTs = req.query.endTs;
     try {
-        const resp = await telemetryService.download(jwt_token, req.params.device_id, "DEVICE")
+        const resp = await telemetryService.download(jwt_token, startTs, endTs, req.params.device_id, "DEVICE")
         res.status(200).json(resp);
     } catch (err) {
         console.error(`Error while downloading telemetry`, err.message);

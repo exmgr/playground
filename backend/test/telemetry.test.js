@@ -55,7 +55,7 @@ describe("Upload/Download telemetries", () => {
         expect(res.statusCode).toBe(201);
     });
     it("should download telemetries for the device", async () => {
-        const res = await request(app).get("/telemetries/" + createdDeviceID);
+        const res = await request(app).get("/telemetries/" + createdDeviceID + "?startTs=1670608860310&endTs=1670609860310");
         expect(res.statusCode).toBe(200);
         assert(res.body, {
             "temperature": [

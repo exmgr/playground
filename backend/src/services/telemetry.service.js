@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-async function download(jwt_token, entity_id, entity_type = "DEVICE") {
+async function download(jwt_token,startTs,endTs, entity_id, entity_type = "DEVICE") {
     const url = process.env.WXM_API_URL + `/plugins/telemetry/${entity_type}/${entity_id}/values/timeseries?`
     const params = new URLSearchParams({
         "keys": "timestamp,temperature,humidity,pressure,wind_speed,wind_gust,wind_direction",
-        "startTs": "1670608860310",
-        "endTs": "1670609860310",
+        "startTs": startTs,
+        "endTs": endTs,
         "interval": "3600000",
         "agg": "SUM",
     });
@@ -22,7 +22,6 @@ async function download(jwt_token, entity_id, entity_type = "DEVICE") {
 
     return await axios(config)
         .then(function (response) {
-            console.log(JSON.stringify(response.data));
             return response.data;
         })
         .catch(function (e) {
