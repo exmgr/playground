@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  iot_backend:
+    build:
+      context: ../backend
+      dockerfile: ../backend/build/Dockerfile
+    container_name: iot_backend
+    restart: on-failure
+    ports:
+      - "8000:8000"
+    env_file:
+      - "../backend/.env.dist"
+
+
+  iot_client:
+    container_name: iot_client
+    build:
+      context: ../client
+      dockerfile: ../client/build/Dockerfile
+    env_file:
+      - "../client/.env.dist"
+    depends_on:
+      - iot_backend

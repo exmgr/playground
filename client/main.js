@@ -1,6 +1,9 @@
 const csvBatch = require('csv-batch');
 const axios = require('axios');
 const fs = require('fs');
+const dotenv = require("dotenv")
+
+dotenv.config()
 
 async function main() {
     const deviceID = await registerDevice();
@@ -45,10 +48,11 @@ async function registerDevice() {
         "name": "ghal-" + Date.now(),
         "label": "ghal-" + Date.now(),
     });
+    const port = process.env.PORT || 3000;
 
     const config = {
         method: 'post',
-        url: 'http://127.0.0.1:8000/devices',
+        url: `${process.env.WXM_BACKEND_URL}:${process.env.WXM_BACKEND_PORT}/devices`,
         headers: {
             'Content-Type': 'application/json'
         },
@@ -69,7 +73,7 @@ async function registerDevice() {
 async function uploadTelemetryData(deviceID, data) {
     const config = {
         method: 'post',
-        url: 'http://127.0.0.1:8000/telemetries/' + deviceID,
+        url: `${process.env.WXM_BACKEND_URL}:${process.env.WXM_BACKEND_PORT}/telemetries/` + deviceID,
         headers: {
             'Content-Type': 'application/json'
         },

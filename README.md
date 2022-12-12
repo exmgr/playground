@@ -7,7 +7,7 @@ This is a client-backend-Thingsboard server integration of an IOT device.
 
 # Quick Start
 
-Just execute `make serve` to serve the program via docker.
+Just execute `make serve` to serve the program via docker (Be sure to have `/backend/.env.dist` file updated.). 
 
 # Features
 
@@ -54,7 +54,7 @@ Please use `make <target>` where `<target>` is one of the following:
 `stop`                           Stop the Docker Compose app
 ```
 
-There is a second makefile at `movierama-backend` directory which provides some extra functionalities such as linting,
+There is a second makefile at the `backend` directory which provides some extra functionalities such as linting,
 testing,
 ci, etc..:
 
