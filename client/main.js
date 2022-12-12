@@ -21,7 +21,6 @@ async function processCSV(deviceID) {
     });
 }
 
-
 async function sendResults(deviceID, rows) {
     const telData = []
     for (const row of rows) {
@@ -89,5 +88,4 @@ async function uploadTelemetryData(deviceID, data) {
         });
 }
 
-
-main().then(r => console.log("process completed!"));
+main().then(() => console.log("process completed!"));

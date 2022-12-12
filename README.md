@@ -50,35 +50,45 @@ Postman Collection Location: _under doc/postman/_
 Please use `make <target>` where `<target>` is one of the following:
 
 ``` makefile
-`serve`                          Serve the app with Docker Compose
+`serve`                          Serve the backend app with Docker Compose
+`serve-client`                   Serve the client app with Docker Compose
 `stop`                           Stop the Docker Compose app
 ```
 
-There is a second makefile at the `backend` directory which provides some extra functionalities such as linting,
-testing,
-ci, etc..:
+[//]: # (There is a second makefile at the `backend` directory which provides some extra functionalities such as linting,)
 
-``` makefile
-`serve`                          Serve the app with Docker Compose
-`ci`                             Run the CI pipeline
-`stop`                           Stop the Docker Compose app
-`test`                           Run the tests
-```
+[//]: # (testing,)
+
+[//]: # (ci, etc..:)
+
+[//]: # ()
+[//]: # (``` makefile)
+
+[//]: # (`serve`                          Serve the app with Docker Compose)
+
+[//]: # (`ci`                             Run the CI pipeline)
+
+[//]: # (`stop`                           Stop the Docker Compose app)
+
+[//]: # (`test`                           Run the tests)
+
+[//]: # (```)
 
 # Technical Details
 
 ## Technical Overview
 
-![technical overview](doc/diagrams/EXM.drawio.png)
+[//]: # (![technical overview]&#40;doc/diagrams/EXM.drawio.png&#41;)
 
 ## What has been implemented
 
 - [ ] Unit testing.
 - [x] Integration testing.
 - [ ] E2E testing.
-- [x] Use of service-repo pattern.
+- [x] Use of route-controller-service pattern.
+- [x] Thingsboard JWT authentication.
 - [ ] JWT token refreshing.
-- [x] Postman collection.
+- [] Postman collection.
 - [x] Docker implementation.
 
 ## Future Improvements
