@@ -39,9 +39,11 @@ A node express app with REST endpoints that will interact with a Thinsgboard ser
 
 # API
 
-## HTTP
+[//]: # ()
+[//]: # (## HTTP)
 
-Postman Collection Location: _under doc/postman/_
+[//]: # ()
+[//]: # (Postman Collection Location: _under doc/postman/_)
 
 # Developers Handbook
 
@@ -88,7 +90,7 @@ Please use `make <target>` where `<target>` is one of the following:
 - [x] Use of route-controller-service pattern.
 - [x] Thingsboard JWT authentication.
 - [ ] JWT token refreshing.
-- [] Postman collection.
+- [ ] Postman collection.
 - [x] Docker implementation.
 
 ## Future Improvements
