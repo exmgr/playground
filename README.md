@@ -7,7 +7,7 @@ This is a client-backend-Thingsboard server integration of an IOT device.
 
 # Quick Start
 
-Just execute `make serve` to serve the program via docker (Be sure to have `/backend/.env.dist` file updated.). 
+Just execute `make serve` to serve the program via docker (Be sure to have `/backend/.env.dist` file updated).
 
 # Features
 
@@ -41,8 +41,7 @@ A node express app with REST endpoints that will interact with a Thinsgboard ser
 
 ## HTTP
 
-
-Postman Collection Location: _under doc/postman/_
+Postman Collection Location: _under `doc/postman/`_
 
 # Developers Handbook
 
@@ -63,6 +62,7 @@ Please use `make <target>` where `<target>` is one of the following:
 [//]: # (ci, etc..:)
 
 [//]: # ()
+
 [//]: # (``` makefile)
 
 [//]: # (`serve`                          Serve the app with Docker Compose)
@@ -79,13 +79,12 @@ Please use `make <target>` where `<target>` is one of the following:
 
 ## Technical Overview
 
-[//]: # (![technical overview]&#40;doc/diagrams/EXM.drawio.png&#41;)
+![technical overview](doc/diagrams/exm_iot.drawio.png)
 
 ## What has been implemented
 
 - [ ] Unit testing.
 - [x] Integration testing.
-- [ ] E2E testing.
 - [x] Use of route-controller-service pattern.
 - [x] Thingsboard JWT authentication.
 - [ ] JWT token refreshing.
