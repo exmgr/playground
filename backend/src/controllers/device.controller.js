@@ -3,7 +3,7 @@ const deviceService = require("../services/device.service");
 async function create(req, res, next) {
     const jwt_token = await req.app.get("jwt_token")
     try {
-        const resp = await deviceService.create(jwt_token,req.body.name,req.body.label);
+        const resp = await deviceService.create(jwt_token, req.body.name, req.body.label);
         res.status(201).json({
             id: resp.id.id
         });

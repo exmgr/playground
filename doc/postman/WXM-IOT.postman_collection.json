@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "31dccfc8-72bf-40de-ac45-3cc004ced11e",
+		"name": "WXM-IOT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Download Telemetry Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{wxm_iot_backend_url}}/telemetries/{{device_id}}?startTs={{download_start_ts}}&endTs={{download_start_ts}}",
+					"host": [
+						"{{wxm_iot_backend_url}}"
+					],
+					"path": [
+						"telemetries",
+						"{{device_id}}"
+					],
+					"query": [
+						{
+							"key": "startTs",
+							"value": "{{download_start_ts}}"
+						},
+						{
+							"key": "endTs",
+							"value": "{{download_start_ts}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Device Creation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{wxm_iot_backend_url}}/devices",
+					"host": [
+						"{{wxm_iot_backend_url}}"
+					],
+					"path": [
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Telemetry Data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"ts\": 1670608860310,\n        \"values\": {\n            \"temperature\": 20,\n            \"humidity\": 50,\n            \"pressure\": 1,\n            \"wind_speed\": 10,\n            \"wind_gust\": 0.5,\n            \"wind_direction\": 100\n        }\n    },\n    {\n        \"ts\": 1670609860310,\n        \"values\": {\n            \"temperature\": 10,\n            \"humidity\": 25,\n            \"pressure\": 0.5,\n            \"wind_speed\": 5,\n            \"wind_gust\": 0.25,\n            \"wind_direction\": 50\n        }\n    }\n]"
+				},
+				"url": {
+					"raw": "{{wxm_iot_backend_url}}/telemetries/{{device_id}}",
+					"host": [
+						"{{wxm_iot_backend_url}}"
+					],
+					"path": [
+						"telemetries",
+						"{{device_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Device Deletion",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{wxm_iot_backend_url}}/devices/{{device_id}}",
+					"host": [
+						"{{wxm_iot_backend_url}}"
+					],
+					"path": [
+						"devices",
+						"{{device_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
