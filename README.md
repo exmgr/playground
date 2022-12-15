@@ -18,9 +18,10 @@ A node express app with REST endpoints that will interact with a Thinsgboard ser
 - Endpoint for uploading telemetry
 - Endpoint for downloading telemetry: returns the aggregated (SUM per hour) telemetry data from a specific device
   Client application
-- A node app that makes use of the backend API that created by:
-    - Creating a device
-    - Uploading telemetry data
+
+A node app that makes use of the backend API that created by:
+- Creating a device
+- Uploading telemetry data
 
 ## Tech Stack
 
